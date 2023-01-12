@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime);
+        transform.Translate(Vector3.forward * (Time.deltaTime * speed));
     }
 }

@@ -13,6 +13,4 @@ public class PlayerController : MonoBehaviour
     private float playerSpeed;
     private Vector3 movementDirection = Vector3.forward;
     
-    
-
 }
