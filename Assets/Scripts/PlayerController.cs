@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+[RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float initialPlayerSpeed = 4f;
@@ -12,5 +14,9 @@ public class PlayerController : MonoBehaviour
 
     private float playerSpeed;
     private Vector3 movementDirection = Vector3.forward;
-    
+
+    private PlayerInput playerInput;
+    private InputAction jumpAction;
+
+    private CharacterController controller;
 }

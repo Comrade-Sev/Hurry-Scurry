@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 namespace RunRun3
@@ -10,7 +11,7 @@ namespace RunRun3
         [SerializeField] private int minimumStraightTiles = 3;
         [SerializeField] private int maximumStraightTiles = 15;
         [SerializeField] private GameObject startingTile;
-        [SerializeField] private List<GameObject> turnTiles;
+        [SerializeField] private List<GameObject> endTiles;
         [SerializeField] private List<GameObject> obstacles;
 
         private Vector3 currentTileLocation = Vector3.zero;
@@ -31,13 +32,20 @@ namespace RunRun3
                 SpawnTile(startingTile.GetComponent<Tile>(), false);
             } 
             
-            //SpawnTile();
+            SpawnTile(SelectRandomGameObjectFromList(endTiles).GetComponent<Tile>(), false);
         }
         private void SpawnTile(Tile tile, bool spawnObstacle)
         {
             prevTile = GameObject.Instantiate(tile.gameObject, currentTileLocation, Quaternion.identity);
             currentTiles.Add(prevTile);
             currentTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentTileDirection);
+        }
+
+        private GameObject SelectRandomGameObjectFromList(List<GameObject> list)
+        {
+            if (list.Count == 0) return null;
+            
+            return list[Random.Range(0, list.Count)];
         }
     }
 
