@@ -6,8 +6,7 @@ namespace RunRun3
         STRAIGHT,
         LEFT,
         RIGHT,
-        UP,
-        END
+        SIDEWAYS
     }
 
     /// <summary>
@@ -17,6 +16,5 @@ namespace RunRun3
     {
         public TileType type;
         public Transform pivot;
-        public int index;
     }   
 }
