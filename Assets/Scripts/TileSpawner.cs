@@ -11,8 +11,8 @@ namespace RunRun3
         [SerializeField] private int minimumStraightTiles = 3;
         [SerializeField] private int maximumStraightTiles = 15;
         [SerializeField] private GameObject startingTile;
-        [SerializeField] private List<GameObject> endTiles;
-        [SerializeField] private List<GameObject> obstacles;
+        [SerializeField] private List<GameObject> normalTiles;
+        [SerializeField] private List<GameObject> gapTiles;
         
 
         private Vector3 currentTileLocation = Vector3.zero;
@@ -57,6 +57,9 @@ namespace RunRun3
         public void AddNewTiles()
         {
             DeletePreviousTiles();
+            SpawnTile(startingTile.GetComponent<Tile>(), false);
+            SpawnTile(startingTile.GetComponent<Tile>(), false);
+            SpawnTile(startingTile.GetComponent<Tile>(), false);
             SpawnTile(startingTile.GetComponent<Tile>(), false);
         }
 

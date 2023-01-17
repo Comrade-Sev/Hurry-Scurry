@@ -9,11 +9,6 @@ namespace RunRun3
     [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
         public class Player : MonoBehaviour
     {
-        //[SerializeField] private float initialPlayerSpeed = 4f;
-        //[SerializeField] private float maximumPlayerSpeed = 30f;
-        //[SerializeField] private float playerSpeedIncreaseRate = .1f;
-        //[SerializeField] private float jumpHeight = 1.0f;
-        //[SerializeField] private float initialGravityValue = -9.8f;
         [SerializeField] private LayerMask tileLayer;
 
         private float playerSpeed;
@@ -54,7 +49,7 @@ namespace RunRun3
             direction.z = forwardSpeed;
             direction.y += Gravity * Time.deltaTime;
 
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.5f, tileLayer);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.59f, tileLayer);
             if (hitColliders.Length != 0)
             {
                 Debug.Log("test");
