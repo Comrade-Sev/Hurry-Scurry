@@ -16,5 +16,6 @@ namespace RunRun3
     {
         public TileType type;
         public Transform pivot;
+        public int index;
     }   
 }

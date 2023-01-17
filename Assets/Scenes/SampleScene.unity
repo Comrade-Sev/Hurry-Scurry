@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 1403261837}
     - target: {fileID: 1908706969483305261, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
       propertyPath: m_VersionIndex
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5475724674181686055, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
       propertyPath: m_RootOrder
@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 972242942}
+    - target: {fileID: 1908706969483305261, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
+      propertyPath: m_VersionIndex
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5475724674181686055, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1034,7 +1038,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-440390
+  m_Name: pb_Mesh-51844
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1480,7 +1484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964277356}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.03, z: 8.21}
+  m_LocalPosition: {x: 0, y: -1.03, z: 5.84}
   m_LocalScale: {x: 2, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1493,7 +1497,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-432228
+  m_Name: pb_Mesh-51832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1846,7 +1850,7 @@ PrefabInstance:
       objectReference: {fileID: 698707815}
     - target: {fileID: 1908706969483305261, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
       propertyPath: m_VersionIndex
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5475724674181686055, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
       propertyPath: m_RootOrder
@@ -1959,8 +1963,9 @@ MonoBehaviour:
   minimumStraightTiles: 3
   maximumStraightTiles: 15
   startingTile: {fileID: 7270030239991754380, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
-  turnTiles: []
+  endTiles: []
   obstacles: []
+  indexCounter: 0
 --- !u!1 &1244270023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2109,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-438858
+  m_Name: pb_Mesh-51820
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2416,7 +2421,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-437608
+  m_Name: pb_Mesh-51856
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2599,7 +2604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649303303}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 3.95, z: 9.33}
+  m_LocalPosition: {x: -8.74, y: 3.95, z: 9.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2708,6 +2713,8 @@ GameObject:
   - component: {fileID: 1662243328}
   - component: {fileID: 1662243329}
   - component: {fileID: 1662243330}
+  - component: {fileID: 1662243332}
+  - component: {fileID: 1662243331}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2786,7 +2793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662243322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.45, z: -3.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2817,6 +2824,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed61238f48763f42bad42a127a8fae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  tileSpawner: {fileID: 1847573219}
   forwardSpeed: 5
   originalForwardSpeed: 0
   jumpForce: 10
@@ -2844,6 +2855,57 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1662243331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662243322}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fede68606dc0af4479113c47377a190c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPlayerSpeed: 4
+  maximumPlayerSpeed: 30
+  playerSpeedIncreaseRate: 0.1
+  jumpHeight: 1
+  initialGravityValue: -9.8
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  tileSpawner: {fileID: 1847573219}
+--- !u!114 &1662243332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662243322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: 0}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &1665522768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5475724674181686055, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
@@ -2862,7 +2924,7 @@ PrefabInstance:
       objectReference: {fileID: 1629051159}
     - target: {fileID: 1908706969483305261, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
       propertyPath: m_VersionIndex
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5475724674181686055, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
       propertyPath: m_RootOrder
@@ -2955,8 +3017,9 @@ MonoBehaviour:
   minimumStraightTiles: 3
   maximumStraightTiles: 15
   startingTile: {fileID: 7270030239991754380, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
-  turnTiles: []
+  endTiles: []
   obstacles: []
+  indexCounter: 0
 --- !u!4 &1847573220
 Transform:
   m_ObjectHideFlags: 0

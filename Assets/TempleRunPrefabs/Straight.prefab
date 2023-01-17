@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5726498178971717387}
   - component: {fileID: 5680116188410879156}
   - component: {fileID: 7859742000213358136}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   pivot: {fileID: 5475724674181686055}
+  index: 0
 --- !u!65 &7859742000213358136
 BoxCollider:
   m_ObjectHideFlags: 0

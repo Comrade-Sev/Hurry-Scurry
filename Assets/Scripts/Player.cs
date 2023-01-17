@@ -1,105 +1,135 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+
+namespace RunRun3
 {
-
-    private CharacterController controller;
-
-    private Vector3 direction;
-    public float forwardSpeed;
-    public float originalForwardSpeed;
-
-    public float jumpForce;
-
-    public float dashTry;
-    public float Gravity = -20;
-    public int flag = 0;
-
-    public float dashSpeed;
-
-    public float dashTime;
-
-    public int isSprinting = 0;
-
-    // Start is called before the first frame update
-    void Start()
+    [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
+        public class Player : MonoBehaviour
     {
-        controller = GetComponent<CharacterController>();
-        originalForwardSpeed = forwardSpeed;
-    }
+        //[SerializeField] private float initialPlayerSpeed = 4f;
+        //[SerializeField] private float maximumPlayerSpeed = 30f;
+        //[SerializeField] private float playerSpeedIncreaseRate = .1f;
+        //[SerializeField] private float jumpHeight = 1.0f;
+        //[SerializeField] private float initialGravityValue = -9.8f;
+        [SerializeField] private LayerMask tileLayer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        direction.z = forwardSpeed;
-        direction.y += Gravity * Time.deltaTime;
+        private float playerSpeed;
+        private Vector3 movementDirection = Vector3.forward;
 
+        private PlayerInput playerInput;
+        private InputAction jumpAction;
 
-    }
+        private CharacterController controller;
 
-    private void FixedUpdate()
-    {
-        controller.Move(direction * Time.fixedDeltaTime);
-    }
+        private int currentlyOn;
+        public TileSpawner tileSpawner;
 
-    public void JumpButton()
-    {
-        if(controller.isGrounded)
+        private Vector3 direction;
+        public float forwardSpeed;
+        public float originalForwardSpeed;
+
+        public float jumpForce;
+
+        public float dashTry;
+        public float Gravity = -20;
+        public int flag = 0;
+
+        public float dashSpeed;
+
+        public float dashTime;
+
+        public int isSprinting = 0;
+
+        void Start()
         {
-            //flag = 1;
-            Jump();   
-        }
-    }
-
-    private void Jump()
-    {
-        //if(isSprinting == 0)
-        //{
-        direction.y = jumpForce;
-        //}
-        //else if (isSprinting == 1)
-        //{
-            //direction.y = jumpForce * 2;
-        //}
-    }
-
-    public void Sprint()
-    {
-        if(controller.isGrounded)
-        {
-            forwardSpeed = forwardSpeed * 2;
-            isSprinting = 1;
+            controller = GetComponent<CharacterController>();
+            originalForwardSpeed = forwardSpeed;
         }
         
-    }
-    public void SprintStop()
-    {
-        if(controller.isGrounded)
+        void Update()
         {
-            forwardSpeed = originalForwardSpeed;
-        }
-        
-    }
+            direction.z = forwardSpeed;
+            direction.y += Gravity * Time.deltaTime;
 
-    public void DashButton()
-    {
-        StartCoroutine(Dash());
-
-    }
-    IEnumerator Dash()
-    {
-        float startTime = Time.time;
-
-        if(controller.isGrounded)
-        {
-            while(Time.time < startTime + dashTime)
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.5f, tileLayer);
+            if (hitColliders.Length != 0)
             {
-                controller.Move(direction * dashSpeed * Time.deltaTime);
-
-                yield return null;
+                Debug.Log("test");
+                Tile tile = hitColliders[0].transform.GetComponent<Tile>();
+                if (tile.index != currentlyOn)
+                {
+                    tileSpawner.AddNewTiles();
+                    currentlyOn = tile.index;
+                }
             }
         }
-    }
+
+        private void FixedUpdate()
+        {
+            controller.Move(direction * Time.fixedDeltaTime);
+        }
+
+        public void JumpButton()
+        {
+            if(controller.isGrounded)
+            {
+                //flag = 1;
+                Jump();   
+            }
+        }
+
+        private void Jump()
+        {
+            //if(isSprinting == 0)
+            //{
+            direction.y = jumpForce;
+            //}
+            //else if (isSprinting == 1)
+            //{
+                //direction.y = jumpForce * 2;
+            //}
+        }
+
+        public void Sprint()
+        {
+            if(controller.isGrounded)
+            {
+                forwardSpeed = forwardSpeed * 2;
+                isSprinting = 1;
+            }
+        
+        }
+        public void SprintStop()
+        {
+            if(controller.isGrounded)
+            {
+                forwardSpeed = originalForwardSpeed;
+            }
+        
+        }
+
+        public void DashButton()
+        {
+            StartCoroutine(Dash());
+
+        }
+        IEnumerator Dash()
+        {
+            float startTime = Time.time;
+
+            if(controller.isGrounded)
+            {
+                while(Time.time < startTime + dashTime)
+                {
+                    controller.Move(direction * dashSpeed * Time.deltaTime);
+
+                    yield return null;
+                }
+            }
+        }
+}
+
 }
