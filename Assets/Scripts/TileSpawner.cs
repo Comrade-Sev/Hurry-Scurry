@@ -32,12 +32,6 @@ namespace RunRun3
         private List<GameObject> currentObstacles;
 
         public int indexCounter;
-
-        private void Update()
-        {
-            Debug.Log(currentDownTileLocation);
-        }
-
         private void Start()
         {
             currentTiles = new List<GameObject>();

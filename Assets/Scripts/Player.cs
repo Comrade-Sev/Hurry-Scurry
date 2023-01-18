@@ -58,7 +58,7 @@ namespace RunRun3
 
             if(end == 1)
             {
-                //UnityEditor.EditorApplication.isPlaying = false;
+                UnityEditor.EditorApplication.isPlaying = false;
                 Application.Quit();
             }
             direction.y += Gravity * Time.deltaTime;
@@ -90,7 +90,7 @@ namespace RunRun3
 
             if(end == 1)
             {
-                //UnityEditor.EditorApplication.isPlaying = false;
+                UnityEditor.EditorApplication.isPlaying = false;
                 Application.Quit();
             }
             controller.Move(direction * Time.fixedDeltaTime);
