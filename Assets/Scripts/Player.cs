@@ -36,7 +36,11 @@ namespace RunRun3
 
         public float dashTime;
 
+        public int end = 0;
+
         public int isSprinting = 0;
+        public Vector3 MoveSpeed;
+        //public Rigidbody self;
 
         void Start()
         {
@@ -47,7 +51,19 @@ namespace RunRun3
         void Update()
         {
             direction.z = forwardSpeed;
+            //controller.velocity == MoveSpeed;
+            //MoveSpeed = new Vector3(controller.velocity.x, controller.velocity.y, 0);
+
+            
+
+            if(end == 1)
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+                Application.Quit();
+            }
             direction.y += Gravity * Time.deltaTime;
+
+
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.59f, tileLayer);
             if (hitColliders.Length != 0)
@@ -59,11 +75,26 @@ namespace RunRun3
                     currentlyOn = tile.index;
                 }
             }
+            if(controller.velocity.z < 0.1f && controller.isGrounded)
+            {
+                end = 1;
+            }
         }
 
         private void FixedUpdate()
         {
+            if(!controller.transform.hasChanged)
+            {
+                end = 1;
+            }
+
+            if(end == 1)
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+                Application.Quit();
+            }
             controller.Move(direction * Time.fixedDeltaTime);
+            
         }
 
         public void JumpButton()
