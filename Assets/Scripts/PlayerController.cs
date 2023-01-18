@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log(hitColliders);
         if (hitColliders.Length != 0)
         {
-            Debug.Log("test");
             Tile tile = hitColliders[0].transform.GetComponent<Tile>();
             if (tile.index != currentlyOn)
             {
