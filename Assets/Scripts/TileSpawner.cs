@@ -26,6 +26,7 @@ namespace RunRun3
         private Vector3 currentDownTileDirection = Vector3.forward;
         //private Vector3 currentTileRotation = Vector3.zero;
         private GameObject prevTile;
+        public GameObject MainBox;
         
         private List<GameObject> currentTiles;
         private List<GameObject> currentObstacles;
@@ -59,6 +60,7 @@ namespace RunRun3
         {
             prevTile = GameObject.Instantiate(tile.gameObject, currentDownTileLocation, Quaternion.Euler(0,0,0));
             currentTiles.Add(prevTile);
+            prevTile.transform.SetParent(MainBox.transform);
             
             prevTile.GetComponent<Tile>().index = indexCounter;
 
@@ -77,6 +79,7 @@ namespace RunRun3
             
             prevTile = GameObject.Instantiate(tile.gameObject, currentRightTileLocation, Quaternion.Euler(0,0,90));
             currentTiles.Add(prevTile);
+            prevTile.transform.SetParent(MainBox.transform);
             
             prevTile.GetComponent<Tile>().index = indexCounter;
 
@@ -95,6 +98,7 @@ namespace RunRun3
             
             prevTile = GameObject.Instantiate(tile.gameObject, currentLeftTileLocation, Quaternion.Euler(0,0,90));
             currentTiles.Add(prevTile);
+            prevTile.transform.SetParent(MainBox.transform);
             
             prevTile.GetComponent<Tile>().index = indexCounter;
 
@@ -113,6 +117,7 @@ namespace RunRun3
             
             prevTile = GameObject.Instantiate(tile.gameObject, currentUpTileLocation, Quaternion.Euler(0,0,0));
             currentTiles.Add(prevTile);
+            prevTile.transform.SetParent(MainBox.transform);
             
             prevTile.GetComponent<Tile>().index = indexCounter;
 
