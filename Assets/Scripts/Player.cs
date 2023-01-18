@@ -23,11 +23,18 @@ public class Player : MonoBehaviour
 
     public int isSprinting = 0;
 
+
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         originalForwardSpeed = forwardSpeed;
+        anim = GetComponent<Animator>();
+        anim.SetBool("Running", true);
+        anim.SetBool("Sprinting", false);
+        anim.SetBool("Jump", false);
+        //anim.SetFloat("Speed", 0);
     }
 
     // Update is called once per frame
@@ -35,6 +42,14 @@ public class Player : MonoBehaviour
     {
         direction.z = forwardSpeed;
         direction.y += Gravity * Time.deltaTime;
+        if(controller.isGrounded == false)
+        {
+            //flag = 1;
+            //anim.SetFloat("Speed", 1);
+            anim.SetBool("Running", false);
+            anim.SetBool("Sprinting", false);
+            anim.SetBool("Jump", true);
+        }
 
 
     }
@@ -49,6 +64,7 @@ public class Player : MonoBehaviour
         if(controller.isGrounded)
         {
             //flag = 1;
+            //anim.SetFloat("Speed", 0);
             Jump();   
         }
     }
@@ -69,8 +85,12 @@ public class Player : MonoBehaviour
     {
         if(controller.isGrounded)
         {
+            //anim.SetFloat("Speed", 0.5f);
             forwardSpeed = forwardSpeed * 2;
             isSprinting = 1;
+            anim.SetBool("Running", false);
+            anim.SetBool("Sprinting", true);
+            anim.SetBool("Jump", false);
         }
         
     }
@@ -79,6 +99,10 @@ public class Player : MonoBehaviour
         if(controller.isGrounded)
         {
             forwardSpeed = originalForwardSpeed;
+            //anim.SetFloat("Speed", 0);
+            anim.SetBool("Running", true);
+            anim.SetBool("Sprinting", false);
+            anim.SetBool("Jump", false);
         }
         
     }
