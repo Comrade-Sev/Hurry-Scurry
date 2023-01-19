@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using LootLocker.Requests;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 namespace RunRun3
@@ -11,6 +13,9 @@ namespace RunRun3
     {
         [SerializeField] private LayerMask tileLayer;
 
+        public Leaderboard leaderboard;
+        int score = 600;
+        
         private float playerSpeed;
         private Vector3 movementDirection = Vector3.forward;
 
@@ -58,8 +63,9 @@ namespace RunRun3
 
             if(end == 1)
             {
-                UnityEditor.EditorApplication.isPlaying = false;
-                Application.Quit();
+                StartCoroutine(DieRoutine());
+                //UnityEditor.EditorApplication.isPlaying = false;
+                //Application.Quit();
             }
             direction.y += Gravity * Time.deltaTime;
 
@@ -90,8 +96,9 @@ namespace RunRun3
 
             if(end == 1)
             {
-                UnityEditor.EditorApplication.isPlaying = false;
-                Application.Quit();
+                
+                //UnityEditor.EditorApplication.isPlaying = false;
+                //Application.Quit();
             }
             controller.Move(direction * Time.fixedDeltaTime);
             
@@ -154,6 +161,15 @@ namespace RunRun3
                     yield return null;
                 }
             }
+        }
+
+        IEnumerator DieRoutine()
+        {
+            Time.timeScale = 0f;
+            yield return new WaitForSecondsRealtime(1f);
+            yield return leaderboard.SubmitScoreRoutine(score);
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 }
 
