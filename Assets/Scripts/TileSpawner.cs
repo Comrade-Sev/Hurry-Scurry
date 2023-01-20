@@ -138,9 +138,11 @@ namespace RunRun3
             var maxCurrentTiles = currentTiles.Count - 1;
             while (currentTiles.Count != maxCurrentTiles)
             {
-                GameObject tile = currentTiles[0];
-                currentTiles.RemoveAt(0);
-                Destroy(tile);
+
+                    GameObject tile = currentTiles[0];
+                    currentTiles.RemoveAt(0);
+                    Destroy(tile);   
+                
             }
         }
         
