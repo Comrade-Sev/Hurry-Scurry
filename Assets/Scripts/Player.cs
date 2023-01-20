@@ -42,6 +42,8 @@ namespace RunRun3
         public Vector3 MoveSpeed;
 
         public Animator anim;
+
+        private bool cooldownDash = false;
         //public Rigidbody self;
 
         void Start()
@@ -150,7 +152,13 @@ namespace RunRun3
 
         public void DashButton()
         {
-            StartCoroutine(Dash());
+            if(cooldownDash == false) 
+            {
+                //Do somet$$anonymous$$ng
+                StartCoroutine(Dash());
+                Invoke("ResetCooldown",5.0f);
+                cooldownDash = true;
+            }
 
         }
         IEnumerator Dash()
@@ -166,6 +174,10 @@ namespace RunRun3
                     yield return null;
                 }
             }
+        }
+
+        void ResetCooldown(){
+            cooldownDash = false;
         }
 }
 
