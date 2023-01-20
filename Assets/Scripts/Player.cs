@@ -40,6 +40,8 @@ namespace RunRun3
 
         public int isSprinting = 0;
         public Vector3 MoveSpeed;
+
+        public Animator anim;
         //public Rigidbody self;
 
         void Start()
@@ -63,7 +65,14 @@ namespace RunRun3
             }
             direction.y += Gravity * Time.deltaTime;
 
-
+            if(controller.isGrounded == false)
+            {
+                anim.SetFloat("State", 1);
+            }
+            if(controller.isGrounded && isSprinting == 0)
+            {
+                anim.SetFloat("State", 0);
+            }
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.59f, tileLayer);
             if (hitColliders.Length != 0)
@@ -124,6 +133,7 @@ namespace RunRun3
             {
                 forwardSpeed = forwardSpeed * 2;
                 isSprinting = 1;
+                anim.SetFloat("State", 0.5f);
             }
         
         }
@@ -132,6 +142,8 @@ namespace RunRun3
             if(controller.isGrounded)
             {
                 forwardSpeed = originalForwardSpeed;
+                isSprinting = 0;
+                anim.SetFloat("State", 0);
             }
         
         }
