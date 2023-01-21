@@ -43,6 +43,9 @@ namespace RunRun3
 
         public Animator anim;
 
+        public CountdownTimer timer;
+        public GameObject timerObject;
+
         private bool cooldownDash = false;
         //public Rigidbody self;
 
@@ -155,6 +158,8 @@ namespace RunRun3
             if(cooldownDash == false) 
             {
                 //Do somet$$anonymous$$ng
+                timerObject.SetActive(true);
+                timer.currentTime = 5.0f;
                 StartCoroutine(Dash());
                 Invoke("ResetCooldown",5.0f);
                 cooldownDash = true;
