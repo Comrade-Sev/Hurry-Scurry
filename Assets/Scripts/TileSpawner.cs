@@ -25,6 +25,9 @@ namespace RunRun3
         
         private Vector3 currentDownTileDirection = Vector3.forward;
         //private Vector3 currentTileRotation = Vector3.zero;
+        private Quaternion currentUpDownTileRotation = Quaternion.Euler(0, 0, 0);
+        private Quaternion currentRightLeftTileRotation = Quaternion.Euler(0, 0, 90);
+        
         private GameObject prevTile;
         public GameObject MainBox;
         
@@ -41,7 +44,7 @@ namespace RunRun3
             
                 for (int i = 0; i < tileStartCount; ++i)
                 {
-                    SpawnDownTile(startingTile[0], true);
+                    SpawnDownTile(startingTile[0], false);
                     SpawnRightTile(startingTile[1], false);
                     SpawnLeftTile(startingTile[2], false);
                     SpawnUpTile(startingTile[3], false);
@@ -50,9 +53,9 @@ namespace RunRun3
                 //End tile thing
             //SpawnDownTile(SelectRandomGameObjectFromList(endTiles).GetComponent<Tile>(), false);
         }
-        private void SpawnDownTile(GameObject tile, bool spawnObstacle)
+        private void SpawnDownTile(GameObject tile, bool spawnObstacle = true)
         {
-            prevTile = GameObject.Instantiate(tile.gameObject, currentDownTileLocation, Quaternion.Euler(0,0,0));
+            prevTile = GameObject.Instantiate(tile.gameObject, currentDownTileLocation, Quaternion.Euler(0, 0, 0));
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
             
@@ -68,12 +71,13 @@ namespace RunRun3
 
             if (spawnObstacle == true)
             {
-                if(Random.value > 0.4f) return;
+                if(Random.value > 0.2f) return;
 
                 GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
 
-                GameObject gapTile = Instantiate(gapTilePrefab, currentDownTileLocation, Quaternion.Euler(0,0,0));
+                GameObject gapTile = Instantiate(gapTilePrefab, currentDownTileLocation, Quaternion.Euler(0, 0, 90));
                 currentObstacles.Add(gapTile);
+                gapTile.transform.SetParent(MainBox.transform);
             }
         }
         
@@ -81,7 +85,7 @@ namespace RunRun3
         {
             currentRightTileLocation = new Vector3(2, 2, currentRightTileLocation.z);
             
-            prevTile = GameObject.Instantiate(tile.gameObject, currentRightTileLocation, Quaternion.Euler(0,0,90));
+            prevTile = GameObject.Instantiate(tile.gameObject, currentRightTileLocation, currentRightLeftTileRotation);
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
             
@@ -94,13 +98,24 @@ namespace RunRun3
             else indexCounter++;
             
             currentRightTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            
+            if (spawnObstacle == true)
+            {
+                if(Random.value > 0.2f) return;
+
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+
+                GameObject gapTile = Instantiate(gapTilePrefab, currentRightTileLocation, currentUpDownTileRotation);
+                currentObstacles.Add(gapTile);
+                gapTile.transform.SetParent(MainBox.transform);
+            }
         }
         
         private void SpawnLeftTile(GameObject tile, bool spawnObstacle)
         {
             currentLeftTileLocation = new Vector3(-2,2, currentLeftTileLocation.z);
             
-            prevTile = GameObject.Instantiate(tile.gameObject, currentLeftTileLocation, Quaternion.Euler(0,0,90));
+            prevTile = GameObject.Instantiate(tile.gameObject, currentLeftTileLocation, currentRightLeftTileRotation);
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
             
@@ -113,13 +128,24 @@ namespace RunRun3
             else indexCounter++;
             
             currentLeftTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            
+            if (spawnObstacle == true)
+            {
+                if(Random.value > 0.2f) return;
+
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+
+                GameObject gapTile = Instantiate(gapTilePrefab, currentLeftTileLocation, Quaternion.Euler(0, 0, 90));
+                currentObstacles.Add(gapTile);
+                gapTile.transform.SetParent(MainBox.transform);
+            }
         }
         
         private void SpawnUpTile(GameObject tile, bool spawnObstacle)
         {
             currentUpTileLocation = new Vector3(0,4,currentUpTileLocation.z);
             
-            prevTile = GameObject.Instantiate(tile.gameObject, currentUpTileLocation, Quaternion.Euler(0,0,0));
+            prevTile = GameObject.Instantiate(tile.gameObject, currentUpTileLocation, currentUpDownTileRotation);
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
             
@@ -132,15 +158,26 @@ namespace RunRun3
             else indexCounter++;
             
             currentUpTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            
+            if (spawnObstacle == true)
+            {
+                if(Random.value > 0.2f) return;
+
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+
+                GameObject gapTile = Instantiate(gapTilePrefab, currentUpTileLocation, currentUpDownTileRotation);
+                currentObstacles.Add(gapTile);
+                gapTile.transform.SetParent(MainBox.transform);
+            }
         }
 
         public void AddNewTiles()
         {
             DeletePreviousTiles();
-            SpawnDownTile(startingTile[0], false);
-            SpawnRightTile(startingTile[1], false);
-            SpawnLeftTile(startingTile[2], false);
-            SpawnUpTile(startingTile[3], false);
+            SpawnDownTile(startingTile[0], true);
+            SpawnRightTile(startingTile[1], true);
+            SpawnLeftTile(startingTile[2], true);
+            SpawnUpTile(startingTile[3], true);
         }
 
         public void DeletePreviousTiles()
