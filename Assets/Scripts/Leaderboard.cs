@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Leaderboard : MonoBehaviour
 {
+    public LLplayermanager script;
     private int leaderboardID = 10607;
     public TextMeshProUGUI playerNames;
     public TextMeshProUGUI playerScores;
+    public int PlayerID;
 
     //private string memberID = "TestPlayer 2";
     // Start is called before the first frame update
@@ -20,7 +23,8 @@ public class Leaderboard : MonoBehaviour
     public IEnumerator SubmitScoreRoutine(int score)
     {
         bool done = false;
-        string memberID = PlayerPrefs.GetString("MemberID");
+        string memberID = script.playerID.ToString();
+        //string memberID = PlayerPrefs.GetString("MemberID");
         LootLockerSDKManager.SubmitScore(memberID, score, leaderboardID, (response) =>
         {
             if (response.success)

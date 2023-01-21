@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using LootLocker.Requests;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 namespace RunRun3
@@ -14,8 +18,17 @@ namespace RunRun3
         [SerializeField] private LayerMask tileLayer;
 
         public Leaderboard leaderboard;
-        int score = 600;
+        private int score;
         
+        public float distanceTravelled = 0f;
+        public TextMeshProUGUI distance;
+        private Vector3 startPos;
+        private string distanceString;
+        private int distanceInt;
+
+        private float timer = 0f;
+        private int timeScore;
+
         private float playerSpeed;
         private Vector3 movementDirection = Vector3.forward;
 
@@ -49,12 +62,20 @@ namespace RunRun3
 
         void Start()
         {
+            startPos = transform.position;
             controller = GetComponent<CharacterController>();
             originalForwardSpeed = forwardSpeed;
         }
         
         void Update()
         {
+            distanceTravelled = Vector3.Distance(transform.position, startPos);
+            distanceInt = Convert.ToInt32(distanceTravelled);
+            distance.text = distanceInt.ToString();
+
+            timer += Time.deltaTime;
+            timeScore = Convert.ToInt32(timer);
+            
             direction.z = forwardSpeed;
             //controller.velocity == MoveSpeed;
             //MoveSpeed = new Vector3(controller.velocity.x, controller.velocity.y, 0);
@@ -148,6 +169,17 @@ namespace RunRun3
             StartCoroutine(Dash());
 
         }
+
+        private void OnGUI()
+        {
+            GUILayout.Label(distanceString);
+        }
+
+        void scoreCalc()
+        {
+            score = distanceInt / timeScore * 10;
+        }
+
         IEnumerator Dash()
         {
             float startTime = Time.time;
@@ -166,6 +198,7 @@ namespace RunRun3
         IEnumerator DieRoutine()
         {
             Time.timeScale = 0f;
+            scoreCalc();
             yield return new WaitForSecondsRealtime(1f);
             yield return leaderboard.SubmitScoreRoutine(score);
             Time.timeScale = 1f;
