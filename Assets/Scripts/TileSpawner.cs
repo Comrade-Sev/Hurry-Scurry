@@ -41,7 +41,7 @@ namespace RunRun3
             
                 for (int i = 0; i < tileStartCount; ++i)
                 {
-                    SpawnDownTile(startingTile[0], false);
+                    SpawnDownTile(startingTile[0], true);
                     SpawnRightTile(startingTile[1], false);
                     SpawnLeftTile(startingTile[2], false);
                     SpawnUpTile(startingTile[3], false);
@@ -65,6 +65,16 @@ namespace RunRun3
             else indexCounter++;
             
             currentDownTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+
+            if (spawnObstacle == true)
+            {
+                if(Random.value > 0.4f) return;
+
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+
+                GameObject gapTile = Instantiate(gapTilePrefab, currentDownTileLocation, Quaternion.Euler(0,0,0));
+                currentObstacles.Add(gapTile);
+            }
         }
         
         private void SpawnRightTile(GameObject tile, bool spawnObstacle)
@@ -133,15 +143,22 @@ namespace RunRun3
             SpawnUpTile(startingTile[3], false);
         }
 
-        private void DeletePreviousTiles()
+        public void DeletePreviousTiles()
         {
-            var maxCurrentTiles = currentTiles.Count - 1;
+            var maxCurrentTiles = currentTiles.Count - 2;
             while (currentTiles.Count != maxCurrentTiles)
             {
                 GameObject tile = currentTiles[0];
                 currentTiles.RemoveAt(0);
                 Destroy(tile);
             }
+
+            /*while (currentTiles.Count != 0)
+            {
+                GameObject gapTile = currentTiles[0];
+                currentTiles.RemoveAt(0);
+                Destroy(gapTile);
+            }*/
         }
         
         

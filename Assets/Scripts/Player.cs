@@ -83,7 +83,11 @@ namespace RunRun3
                 if (tile.index != currentlyOn)
                 {
                     tileSpawner.AddNewTiles();
-                    currentlyOn = tile.index;
+                    tile.index = currentlyOn;
+                    /*for (int i = 0; i < 50; i++ )
+                    {
+                        tileSpawner.DeletePreviousTiles();
+                    }*/
                 }
             }
             if(controller.velocity.z < 0.1f && controller.isGrounded)
