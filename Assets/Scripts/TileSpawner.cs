@@ -83,7 +83,7 @@ namespace RunRun3
         
         private void SpawnRightTile(GameObject tile, bool spawnObstacle)
         {
-            currentRightTileLocation = new Vector3(2, 2, currentRightTileLocation.z);
+            currentRightTileLocation = new Vector3(4, 2, currentRightTileLocation.z);
             
             prevTile = GameObject.Instantiate(tile.gameObject, currentRightTileLocation, currentRightLeftTileRotation);
             currentTiles.Add(prevTile);
@@ -143,7 +143,7 @@ namespace RunRun3
         
         private void SpawnUpTile(GameObject tile, bool spawnObstacle)
         {
-            currentUpTileLocation = new Vector3(0,4,currentUpTileLocation.z);
+            currentUpTileLocation = new Vector3(0,6,currentUpTileLocation.z);
             
             prevTile = GameObject.Instantiate(tile.gameObject, currentUpTileLocation, currentUpDownTileRotation);
             currentTiles.Add(prevTile);
