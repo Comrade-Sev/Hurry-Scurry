@@ -31,6 +31,7 @@ public class SwitchScene : MonoBehaviour
     }
     public void ChangeSceneMain()
     {
+        PlayerPrefs.DeleteKey("score");
         SceneManager.LoadScene("MainMenu");
     }
     public void ChangeSceneSettings()
