@@ -75,7 +75,7 @@ namespace RunRun3
 
                 GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
 
-                GameObject gapTile = Instantiate(gapTilePrefab, currentDownTileLocation, Quaternion.Euler(0, 0, 90));
+                GameObject gapTile = Instantiate(gapTilePrefab, currentDownTileLocation, Quaternion.Euler(0, 0, 0));
                 currentObstacles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
             }
@@ -105,7 +105,7 @@ namespace RunRun3
 
                 GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
 
-                GameObject gapTile = Instantiate(gapTilePrefab, currentRightTileLocation, currentUpDownTileRotation);
+                GameObject gapTile = Instantiate(gapTilePrefab, currentRightTileLocation, currentRightLeftTileRotation);
                 currentObstacles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
             }
