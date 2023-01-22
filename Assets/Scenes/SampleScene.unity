@@ -5498,7 +5498,7 @@ MonoBehaviour:
     m_Bits: 8
   leaderboard: {fileID: 0}
   distanceTravelled: 0
-  distance: {fileID: 0}
+  distance: {fileID: 1786729544}
   tileSpawner: {fileID: 1847573219}
   forwardSpeed: 5
   originalForwardSpeed: 0
