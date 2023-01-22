@@ -50,6 +50,7 @@ namespace RunRun3
 
         private bool cooldownDash = false;
         //public Rigidbody self;
+        
 
         void Start()
         {
@@ -90,20 +91,26 @@ namespace RunRun3
                 anim.SetFloat("State", 0);
             }
 
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.59f, tileLayer);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.7f, tileLayer);
             if (hitColliders.Length != 0)
             {
                 Tile tile = hitColliders[0].transform.GetComponent<Tile>();
                 if (tile.index != currentlyOn)
                 {
                     tileSpawner.AddNewTiles();
-                    currentlyOn = tile.index;
+                    tile.index = currentlyOn;
+                    /*for (int i = 0; i < 50; i++ )
+                    {
+                        tileSpawner.DeletePreviousTiles();
+                    }*/
                 }
             }
+            
             if(controller.velocity.z < 0.1f && controller.isGrounded)
             {
                 end = 1;
             }
+
         }
 
         private void FixedUpdate()
