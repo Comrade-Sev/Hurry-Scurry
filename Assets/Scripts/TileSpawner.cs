@@ -14,8 +14,10 @@ namespace RunRun3
         //[SerializeField] private int maximumStraightTiles = 15;
         //[SerializeField] private GameObject startingTile;
         [SerializeField] private List<GameObject> startingTile;
-        [SerializeField] private List<GameObject> normalTiles;
-        [SerializeField] private List<GameObject> gapTiles;
+        [SerializeField] private List<GameObject> downTiles;
+        [SerializeField] private List<GameObject> rightTiles;
+        [SerializeField] private List<GameObject> leftTiles;
+        [SerializeField] private List<GameObject> upTiles;
 
 
         private Vector3 currentDownTileLocation = Vector3.zero;
@@ -30,16 +32,16 @@ namespace RunRun3
         
         private GameObject prevTile;
         public GameObject MainBox;
-        
+
         private List<GameObject> currentTiles;
-        private List<GameObject> currentObstacles;
+        private List<GameObject> currentGapTiles;
 
         public int indexCounter;
         private void Start()
         {
             currentTiles = new List<GameObject>();
-            currentObstacles = new List<GameObject>();
-            
+            currentGapTiles = new List<GameObject>();
+
             Random.InitState(System.DateTime.Now.Millisecond);
             
                 for (int i = 0; i < tileStartCount; ++i)
@@ -60,25 +62,24 @@ namespace RunRun3
             prevTile.transform.SetParent(MainBox.transform);
             
             prevTile.GetComponent<Tile>().index = indexCounter;
-
+            
             if (indexCounter > 9)
             {
                 indexCounter = 0;
             }
             else indexCounter++;
             
-            currentDownTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
-
             if (spawnObstacle == true)
             {
-                if(Random.value > 0.2f) return;
-
-                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+                if (Random.value > 0.2f) return;
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(downTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentDownTileLocation, Quaternion.Euler(0, 0, 0));
-                currentObstacles.Add(gapTile);
+                currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
             }
+            
+            currentDownTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
         }
         
         private void SpawnRightTile(GameObject tile, bool spawnObstacle)
@@ -103,10 +104,10 @@ namespace RunRun3
             {
                 if(Random.value > 0.2f) return;
 
-                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(rightTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentRightTileLocation, currentRightLeftTileRotation);
-                currentObstacles.Add(gapTile);
+                currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
             }
         }
@@ -133,10 +134,10 @@ namespace RunRun3
             {
                 if(Random.value > 0.2f) return;
 
-                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(leftTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentLeftTileLocation, Quaternion.Euler(0, 0, 90));
-                currentObstacles.Add(gapTile);
+                currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
             }
         }
@@ -163,10 +164,10 @@ namespace RunRun3
             {
                 if(Random.value > 0.2f) return;
 
-                GameObject gapTilePrefab = SelectRandomGameObjectFromList(gapTiles);
+                GameObject gapTilePrefab = SelectRandomGameObjectFromList(upTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentUpTileLocation, currentUpDownTileRotation);
-                currentObstacles.Add(gapTile);
+                currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
             }
         }
@@ -189,6 +190,14 @@ namespace RunRun3
                 currentTiles.RemoveAt(0);
                 Destroy(tile);
             }
+
+            //var maxCurrentGapTiles = currentGapTiles.Count - 1;
+            //while (currentGapTiles.Count != maxCurrentGapTiles)
+            //{
+                //GameObject gapTile = currentGapTiles[0];
+                //currentGapTiles.RemoveAt(0);
+                //Destroy(gapTile);
+            //}
 
             /*while (currentTiles.Count != 0)
             {
