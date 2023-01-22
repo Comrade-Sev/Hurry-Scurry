@@ -25,7 +25,6 @@ public class Trying : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(Rotate(90));
             //spin.flag = 0;
-            Debug.Log(rotateObject.transform.rotation);
         }   
     
 

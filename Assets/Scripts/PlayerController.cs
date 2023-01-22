@@ -3,6 +3,7 @@ using System.Collections;
 using RunRun3;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
@@ -29,9 +30,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.5f, tileLayer);
+        Debug.Log(hitColliders.Length);
+        Debug.Log(hitColliders);
         if (hitColliders.Length != 0)
         {
-            Debug.Log("test");
             Tile tile = hitColliders[0].transform.GetComponent<Tile>();
             if (tile.index != currentlyOn)
             {

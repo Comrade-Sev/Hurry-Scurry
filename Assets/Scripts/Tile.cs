@@ -6,7 +6,7 @@ namespace RunRun3
         STRAIGHT,
         LEFT,
         RIGHT,
-        SIDEWAYS
+        UP
     }
 
     /// <summary>
