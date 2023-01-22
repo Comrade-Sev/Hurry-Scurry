@@ -7,7 +7,7 @@ public class SwitchScene : MonoBehaviour
 {
 
     public Scene scene;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +31,7 @@ public class SwitchScene : MonoBehaviour
     }
     public void ChangeSceneMain()
     {
+        PlayerPrefs.DeleteKey("score");
         SceneManager.LoadScene("MainMenu");
     }
     public void ChangeSceneSettings()
