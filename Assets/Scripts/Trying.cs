@@ -11,6 +11,7 @@ public class Trying : MonoBehaviour
     public float speed = 10;
 
     public Spin spin;
+    public Spin spinleft;
 
     void Start(){
         //save the starting rotation
@@ -26,6 +27,12 @@ public class Trying : MonoBehaviour
             StartCoroutine(Rotate(90));
             //spin.flag = 0;
         }   
+        if(spinleft.flag == 2 ){
+            StopAllCoroutines();
+            StartCoroutine(Rotate(-90));
+            spinleft.flag = 0;
+            //spin.flag = 0;
+        }  
     
 
     }

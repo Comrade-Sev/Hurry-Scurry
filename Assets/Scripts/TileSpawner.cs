@@ -126,11 +126,11 @@ namespace RunRun3
 
         public void AddNewTiles()
         {
-            DeletePreviousTiles();
-            SpawnDownTile(startingTile[0], false);
-            SpawnRightTile(startingTile[1], false);
-            SpawnLeftTile(startingTile[2], false);
-            SpawnUpTile(startingTile[3], false);
+            //DeletePreviousTiles();
+            //SpawnDownTile(startingTile[0], false);
+            //SpawnRightTile(startingTile[1], false);
+            //SpawnLeftTile(startingTile[2], false);
+            //SpawnUpTile(startingTile[3], false);
         }
 
         private void DeletePreviousTiles()

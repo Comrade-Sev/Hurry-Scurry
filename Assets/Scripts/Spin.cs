@@ -17,6 +17,11 @@ public class Spin : MonoBehaviour
         //Debug.Log(flag);
     }
 
+    public void RotateLeft () {
+        flag = 2;
+        //Debug.Log(flag);
+    }
+
     public void Reset () {
         flag = 0;
         Debug.Log(flag);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 namespace RunRun3
@@ -37,6 +38,7 @@ namespace RunRun3
         public float dashTime;
 
         public int end = 0;
+        public int doesItDash = 0;
 
         public int isSprinting = 0;
         public Vector3 MoveSpeed;
@@ -65,12 +67,21 @@ namespace RunRun3
 
             if(end == 1)
             {
-                UnityEditor.EditorApplication.isPlaying = false;
-                Application.Quit();
+                //UnityEditor.EditorApplication.isPlaying = false;
+                //Application.Quit();
+                SceneManager.LoadScene("Death");
             }
-            direction.y += Gravity * Time.deltaTime;
+            if(doesItDash == 0)
+            {
+                direction.y += Gravity * Time.deltaTime;
+            }
+            else if(doesItDash == 1)
+            {
+                direction.y -= Gravity * Time.deltaTime;
+            }
+            //direction.y += Gravity * Time.deltaTime;
 
-            if(controller.isGrounded == false)
+            if(controller.isGrounded == false && doesItDash == 0)
             {
                 anim.SetFloat("State", 1);
             }
@@ -125,6 +136,7 @@ namespace RunRun3
             //if(isSprinting == 0)
             //{
             direction.y = jumpForce;
+            Gravity = -20;
             //}
             //else if (isSprinting == 1)
             //{
@@ -174,10 +186,22 @@ namespace RunRun3
             {
                 while(Time.time < startTime + dashTime)
                 {
+                    doesItDash = 1;
                     controller.Move(direction * dashSpeed * Time.deltaTime);
+                    anim.SetFloat("State", 0);
+                    direction.y = 0;
+                    /*if(controller.isGrounded == false)
+                    {
+                        direction.y = direction.y;
+                    }*/
+                    //Gravity = 5;
+                    //controller.Move.y();
 
                     yield return null;
                 }
+                //Gravity = -20;
+                anim.SetFloat("State", 0);
+                doesItDash = 0;
             }
         }
 
