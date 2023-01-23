@@ -2720,6 +2720,7 @@ MonoBehaviour:
   leaderboard: {fileID: 0}
   distanceTravelled: 0
   distance: {fileID: 0}
+  timeScore: 0
   tileSpawner: {fileID: 1847573219}
   forwardSpeed: 5
   originalForwardSpeed: 0
@@ -3159,6 +3160,7 @@ MonoBehaviour:
   leaderboard: {fileID: 0}
   distanceTravelled: 0
   distance: {fileID: 1786729544}
+  timeScore: 0
   tileSpawner: {fileID: 1847573219}
   forwardSpeed: 5
   originalForwardSpeed: 0
@@ -3166,7 +3168,7 @@ MonoBehaviour:
   dashTry: 0
   Gravity: -20
   flag: 0
-  dashSpeed: 2.3
+  dashSpeed: 0.79
   dashTime: 2
   end: 0
   doesItDash: 0
