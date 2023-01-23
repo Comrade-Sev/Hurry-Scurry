@@ -10,7 +10,6 @@ public class Spin : MonoBehaviour
 
     public int flag;
 
-
     
 
     public void Rotate () {

@@ -64,8 +64,6 @@ namespace RunRun3
         public GameObject timerObject;
 
         private bool cooldownDash = false;
-
-        public Trying spinFlag;
         //public Rigidbody self;
 
 
@@ -78,12 +76,6 @@ namespace RunRun3
         
         void Update()
         {
-            //if(controller.isGrounded == true && spinFlag.rotateFlag == 1)
-            //{   
-                //spinFlag.rotateFlag = 0;
-                //direction.y = 10;
-                //direction.x += 5;
-            //}
             distanceTravelled = Vector3.Distance(transform.position, startPos);
             distanceInt = Convert.ToInt32(distanceTravelled);
             // distance.text = distanceInt.ToString();
@@ -105,9 +97,6 @@ namespace RunRun3
                 scoreCalc();
                 SceneManager.LoadScene("Death");
             }
-
-
-
             if(doesItDash == 0)
             {
                 direction.y += Gravity * Time.deltaTime;
@@ -186,10 +175,6 @@ namespace RunRun3
                 //direction.y = jumpForce * 2;
             //}
         }
-        public void RotateJump()
-        {
-            direction.y = jumpForce/2;
-        }
 
         public void Sprint()
         {
@@ -214,13 +199,13 @@ namespace RunRun3
 
         public void DashButton()
         {
-            if(cooldownDash == false && controller.isGrounded) 
+            if(cooldownDash == false) 
             {
                 //Do somet$$anonymous$$ng
                 timerObject.SetActive(true);
-                timer.currentTime = 15.0f;
+                timer.currentTime = 5.0f;
                 StartCoroutine(Dash());
-                Invoke("ResetCooldown",15.0f);
+                Invoke("ResetCooldown",5.0f);
                 cooldownDash = true;
             }
 
@@ -246,7 +231,7 @@ namespace RunRun3
                 {
                     doesItDash = 1;
                     controller.Move(direction * dashSpeed * Time.deltaTime);
-                    anim.SetFloat("State", 0.75f);
+                    anim.SetFloat("State", 0);
                     direction.y = 0;
                     /*if(controller.isGrounded == false)
                     {
