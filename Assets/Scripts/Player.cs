@@ -25,7 +25,7 @@ namespace RunRun3
         private int distanceInt;
 
         private float timerDisplay = 0f;
-        private int timeScore;
+        public int timeScore;
 
         private float playerSpeed;
         private Vector3 movementDirection = Vector3.forward;
@@ -110,6 +110,7 @@ namespace RunRun3
 
             if(playerDeath.transform.position.y < -150)
             {
+                scoreCalc();
                 SceneManager.LoadScene("Death");
             }
             if(doesItDash == 0)
@@ -234,7 +235,7 @@ namespace RunRun3
 
         void scoreCalc()
         {
-            score = 2*distanceInt / timeScore * 12;
+            score = 3*distanceInt / timeScore * 12;
             PlayerPrefs.SetInt("score", score);
         }
         
