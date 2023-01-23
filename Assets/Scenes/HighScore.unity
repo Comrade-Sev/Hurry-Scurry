@@ -314,7 +314,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 16.3
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 1.22
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -61.52968, y: 25.519402, z: -61.52968, w: 0}
+  m_margin: {x: -240.79825, y: 25.519402, z: -201.6851, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -876,7 +876,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 16.3
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 1.22
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
