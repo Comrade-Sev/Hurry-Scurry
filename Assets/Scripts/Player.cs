@@ -62,7 +62,6 @@ namespace RunRun3
 
         public CountdownTimer timer;
         public GameObject timerObject;
-        public GameObject playerDeath;
 
         private bool cooldownDash = false;
 
@@ -108,10 +107,7 @@ namespace RunRun3
             }
 
 
-            if(playerDeath.transform.position.y < -150)
-            {
-                SceneManager.LoadScene("Death");
-            }
+
             if(doesItDash == 0)
             {
                 direction.y += Gravity * Time.deltaTime;

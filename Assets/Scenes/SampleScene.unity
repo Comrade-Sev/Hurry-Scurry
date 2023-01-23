@@ -5319,7 +5319,6 @@ MonoBehaviour:
   anim: {fileID: 0}
   timer: {fileID: 0}
   timerObject: {fileID: 0}
-  playerDeath: {fileID: 0}
   spinFlag: {fileID: 0}
 --- !u!143 &1662243330
 CharacterController:
@@ -5703,7 +5702,6 @@ MonoBehaviour:
   anim: {fileID: 2086191897}
   timer: {fileID: 257980244}
   timerObject: {fileID: 257980240}
-  playerDeath: {fileID: 2086191895}
   spinFlag: {fileID: 1499452996}
 --- !u!114 &1988414599
 MonoBehaviour:
