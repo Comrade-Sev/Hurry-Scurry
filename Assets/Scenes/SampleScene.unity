@@ -3949,6 +3949,8 @@ MonoBehaviour:
   speed: 10
   spin: {fileID: 1566599892}
   spinleft: {fileID: 1492180516}
+  play: {fileID: 0}
+  rotateFlag: 0
 --- !u!4 &1499452997
 Transform:
   m_ObjectHideFlags: 0
@@ -4861,6 +4863,8 @@ MonoBehaviour:
   speed: 10
   spin: {fileID: 1566599892}
   spinleft: {fileID: 0}
+  play: {fileID: 0}
+  rotateFlag: 0
 --- !u!1 &1653456520
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,8 +5508,8 @@ MonoBehaviour:
   dashTry: 0
   Gravity: -20
   flag: 0
-  dashSpeed: 1
-  dashTime: 0.7
+  dashSpeed: 2.5
+  dashTime: 4
   end: 0
   doesItDash: 0
   isSprinting: 0
