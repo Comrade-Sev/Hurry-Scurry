@@ -1692,7 +1692,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-122756
+  m_Name: pb_Mesh-247550
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5406,6 +5406,8 @@ MonoBehaviour:
   - {fileID: 7270030239991754380, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
   - {fileID: 7270030239991754380, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
   - {fileID: 7270030239991754380, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
+  - {fileID: 7270030239991754380, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
+  - {fileID: 7270030239991754380, guid: 50a7756a8e2f0f14787d70ef66f51488, type: 3}
   rightTiles:
   - {fileID: 1695056294040661011, guid: befbc26e96258f4458bf66e6015aaabb, type: 3}
   - {fileID: 7216610626448995997, guid: f3db260ddab38134db48e693bcb19127, type: 3}
@@ -5413,6 +5415,8 @@ MonoBehaviour:
   - {fileID: 8085164594601749278, guid: 000c8c53fffdac14598553130e1d6138, type: 3}
   - {fileID: 2891776200287705819, guid: 1e5cfc2ab8a59ae418f24f7fd2fb63c4, type: 3}
   - {fileID: 9189241130594365954, guid: fc595f71e42ba404a8b0fc7fa7aa601e, type: 3}
+  - {fileID: 7270030239991754380, guid: 2763c29cf3e0e69408374cf61663b046, type: 3}
+  - {fileID: 7270030239991754380, guid: 2763c29cf3e0e69408374cf61663b046, type: 3}
   - {fileID: 7270030239991754380, guid: 2763c29cf3e0e69408374cf61663b046, type: 3}
   - {fileID: 7270030239991754380, guid: 2763c29cf3e0e69408374cf61663b046, type: 3}
   - {fileID: 7270030239991754380, guid: 2763c29cf3e0e69408374cf61663b046, type: 3}
@@ -5432,6 +5436,8 @@ MonoBehaviour:
   - {fileID: 7270030239991754380, guid: 65c9928668a738943a7ae8d028693ef9, type: 3}
   - {fileID: 7270030239991754380, guid: 65c9928668a738943a7ae8d028693ef9, type: 3}
   - {fileID: 7270030239991754380, guid: 65c9928668a738943a7ae8d028693ef9, type: 3}
+  - {fileID: 7270030239991754380, guid: 65c9928668a738943a7ae8d028693ef9, type: 3}
+  - {fileID: 7270030239991754380, guid: 65c9928668a738943a7ae8d028693ef9, type: 3}
   upTiles:
   - {fileID: 5131017952926427980, guid: 1c2936380625069498f3fd4dd751b14f, type: 3}
   - {fileID: 1516319367069533623, guid: e9de963fa89d6b9469d32e2ea82bf55c, type: 3}
@@ -5445,7 +5451,10 @@ MonoBehaviour:
   - {fileID: 7270030239991754380, guid: 0211ed7d7de339442b43f641df78a22f, type: 3}
   - {fileID: 7270030239991754380, guid: 0211ed7d7de339442b43f641df78a22f, type: 3}
   - {fileID: 7270030239991754380, guid: 0211ed7d7de339442b43f641df78a22f, type: 3}
+  - {fileID: 7270030239991754380, guid: 0211ed7d7de339442b43f641df78a22f, type: 3}
+  - {fileID: 7270030239991754380, guid: 0211ed7d7de339442b43f641df78a22f, type: 3}
   MainBox: {fileID: 1499452995}
+  difficult: 1
   downIndexCounter: 0
   rightIndexCounter: 0
   leftIndexCounter: 0

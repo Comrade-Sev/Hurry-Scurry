@@ -18,6 +18,7 @@ namespace RunRun3
         [SerializeField] private List<GameObject> rightTiles;
         [SerializeField] private List<GameObject> leftTiles;
         [SerializeField] private List<GameObject> upTiles;
+       
 
 
         private Vector3 currentDownTileLocation = Vector3.zero;
@@ -36,6 +37,7 @@ namespace RunRun3
         private List<GameObject> currentTiles;
         private List<GameObject> currentGapTiles;
 
+        public int difficult = 1;
         public int downIndexCounter;
         public int rightIndexCounter;
         public int leftIndexCounter;
@@ -232,11 +234,13 @@ namespace RunRun3
                 gapTile.transform.SetParent(MainBox.transform);
             }*/
         }
+        
+
 
         public void AddNewTiles()
         {
             DeletePreviousTiles();
-            SpawnDownTile(downTiles[Random.Range(0, downTiles.Count)], true);
+            SpawnDownTile(downTiles[Random.Range(0, downTiles.Count - difficult)], true);
             SpawnRightTile(rightTiles[Random.Range(0, rightTiles.Count)], true);
             SpawnLeftTile(leftTiles[Random.Range(0, leftTiles.Count)], true);
             SpawnUpTile(upTiles[Random.Range(0, upTiles.Count)], true);
