@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1747677300371648358}
   - component: {fileID: 4585799629185653676}
   - component: {fileID: 1747677300371648359}
+  - component: {fileID: 5158436873309576680}
   m_Layer: 3
   m_Name: fGapTiles_ 1
   m_TagString: Untagged
@@ -98,6 +99,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4493585093827132993, guid: b1ccd638af50c0a4b8affb0301c51f90, type: 3}
+--- !u!114 &5158436873309576680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640503594093460089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f08ab720f3bcb45a1e21f27911ad8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  pivot: {fileID: 0}
+  index: 0
 --- !u!1 &3630959727599595919
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,8 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8327179835655594215}
-  - component: {fileID: 8164677916955009924}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: nFinFloorGapTiles_ 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,17 +146,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &8164677916955009924
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3630959727599595919}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}

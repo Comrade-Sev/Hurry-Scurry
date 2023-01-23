@@ -36,7 +36,10 @@ namespace RunRun3
         private List<GameObject> currentTiles;
         private List<GameObject> currentGapTiles;
 
-        public int indexCounter;
+        public int downIndexCounter;
+        public int rightIndexCounter;
+        public int leftIndexCounter;
+        public int upIndexCounter;
         private void Start()
         {
             currentTiles = new List<GameObject>();
@@ -60,26 +63,41 @@ namespace RunRun3
             prevTile = GameObject.Instantiate(tile.gameObject, currentDownTileLocation, Quaternion.Euler(0, 0, 0));
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
-            
-            prevTile.GetComponent<Tile>().index = indexCounter;
-            
-            if (indexCounter > 9)
+
+            if (spawnObstacle == false)
             {
-                indexCounter = 0;
+                prevTile.GetComponent<Tile>().index = downIndexCounter;
             }
-            else indexCounter++;
+            else
+            {
+                prevTile.GetComponentInChildren<Tile>().index = downIndexCounter;
+            }
+
+            if (downIndexCounter > 9)
+            {
+                downIndexCounter = 0;
+            }
+            else downIndexCounter++;
             
-            if (spawnObstacle == true)
+            if (spawnObstacle == false)
+            {
+                currentDownTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            }
+            else
+            {
+                currentDownTileLocation += Vector3.Scale(prevTile.GetComponentInChildren<Renderer>().bounds.size, currentDownTileDirection);
+            }
+            
+            /*if (spawnObstacle == true)
             {
                 if (Random.value > 0.2f) return;
+                prevTile.SetActive(false);
                 GameObject gapTilePrefab = SelectRandomGameObjectFromList(downTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentDownTileLocation, Quaternion.Euler(0, 0, 0));
                 currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
-            }
-            
-            currentDownTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            }*/
         }
         
         private void SpawnRightTile(GameObject tile, bool spawnObstacle)
@@ -90,26 +108,40 @@ namespace RunRun3
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
             
-            prevTile.GetComponent<Tile>().index = indexCounter;
-
-            if (indexCounter > 9)
+            if (spawnObstacle == false)
             {
-                indexCounter = 0;
+                prevTile.GetComponent<Tile>().index = rightIndexCounter;
             }
-            else indexCounter++;
+            else
+            {
+                prevTile.GetComponentInChildren<Tile>().index = rightIndexCounter;
+            }
+
+            if (rightIndexCounter > 9)
+            {
+                rightIndexCounter = 0;
+            }
+            else rightIndexCounter++;
             
-            currentRightTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            if (spawnObstacle == false)
+            {
+                currentRightTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            }
+            else
+            {
+                currentRightTileLocation += Vector3.Scale(prevTile.GetComponentInChildren<Renderer>().bounds.size, currentDownTileDirection);
+            }
             
-            if (spawnObstacle == true)
+            /*if (spawnObstacle == true)
             {
                 if(Random.value > 0.2f) return;
-
+                prevTile.SetActive(false);
                 GameObject gapTilePrefab = SelectRandomGameObjectFromList(rightTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentRightTileLocation, currentRightLeftTileRotation);
                 currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
-            }
+            }*/
         }
         
         private void SpawnLeftTile(GameObject tile, bool spawnObstacle)
@@ -120,26 +152,40 @@ namespace RunRun3
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
             
-            prevTile.GetComponent<Tile>().index = indexCounter;
-
-            if (indexCounter > 9)
+            if (spawnObstacle == false)
             {
-                indexCounter = 0;
+                prevTile.GetComponent<Tile>().index = leftIndexCounter;
             }
-            else indexCounter++;
+            else
+            {
+                prevTile.GetComponentInChildren<Tile>().index = leftIndexCounter;
+            }
+
+            if (leftIndexCounter > 9)
+            {
+                leftIndexCounter = 0;
+            }
+            else leftIndexCounter++;
             
-            currentLeftTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            if (spawnObstacle == false)
+            {
+                currentLeftTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            }
+            else
+            {
+                currentLeftTileLocation += Vector3.Scale(prevTile.GetComponentInChildren<Renderer>().bounds.size, currentDownTileDirection);
+            }
             
-            if (spawnObstacle == true)
+            /*if (spawnObstacle == true)
             {
                 if(Random.value > 0.2f) return;
-
+                prevTile.SetActive(false);
                 GameObject gapTilePrefab = SelectRandomGameObjectFromList(leftTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentLeftTileLocation, Quaternion.Euler(0, 0, 90));
                 currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
-            }
+            }*/
         }
         
         private void SpawnUpTile(GameObject tile, bool spawnObstacle)
@@ -150,40 +196,55 @@ namespace RunRun3
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
             
-            prevTile.GetComponent<Tile>().index = indexCounter;
-
-            if (indexCounter > 9)
+            if (spawnObstacle == false)
             {
-                indexCounter = 0;
+                prevTile.GetComponent<Tile>().index = upIndexCounter;
             }
-            else indexCounter++;
+            else
+            {
+                prevTile.GetComponentInChildren<Tile>().index = upIndexCounter;
+            }
+
+            if (upIndexCounter > 9)
+            {
+                upIndexCounter = 0;
+            }
+            else upIndexCounter++;
             
-            currentUpTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
-            
-            if (spawnObstacle == true)
+            if (spawnObstacle == false)
+            {
+                currentUpTileLocation += Vector3.Scale(prevTile.GetComponent<Renderer>().bounds.size, currentDownTileDirection);
+            }
+            else
+            {
+                currentUpTileLocation += Vector3.Scale(prevTile.GetComponentInChildren<Renderer>().bounds.size, currentDownTileDirection);
+            }
+
+
+            ;/*if (spawnObstacle == true)
             {
                 if(Random.value > 0.2f) return;
-
+                prevTile.SetActive(false);
                 GameObject gapTilePrefab = SelectRandomGameObjectFromList(upTiles);
 
                 GameObject gapTile = Instantiate(gapTilePrefab, currentUpTileLocation, currentUpDownTileRotation);
                 currentGapTiles.Add(gapTile);
                 gapTile.transform.SetParent(MainBox.transform);
-            }
+            }*/
         }
 
         public void AddNewTiles()
         {
             DeletePreviousTiles();
-            SpawnDownTile(startingTile[0], true);
-            SpawnRightTile(startingTile[1], true);
-            SpawnLeftTile(startingTile[2], true);
-            SpawnUpTile(startingTile[3], true);
+            SpawnDownTile(downTiles[Random.Range(0, downTiles.Count)], true);
+            SpawnRightTile(rightTiles[Random.Range(0, rightTiles.Count)], true);
+            SpawnLeftTile(leftTiles[Random.Range(0, leftTiles.Count)], true);
+            SpawnUpTile(upTiles[Random.Range(0, upTiles.Count)], true);
         }
 
         public void DeletePreviousTiles()
         {
-            var maxCurrentTiles = currentTiles.Count - 2;
+            var maxCurrentTiles = currentTiles.Count - 4;
             while (currentTiles.Count != maxCurrentTiles)
             {
                 GameObject tile = currentTiles[0];

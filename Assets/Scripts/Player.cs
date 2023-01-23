@@ -119,15 +119,17 @@ namespace RunRun3
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.7f, tileLayer);
             if (hitColliders.Length != 0)
             {
-                Tile tile = hitColliders[0].transform.GetComponent<Tile>();
-                if (tile.index != currentlyOn)
+                if(hitColliders[0].transform.TryGetComponent<Tile>(out var tile))
                 {
-                    tileSpawner.AddNewTiles();
-                    tile.index = currentlyOn;
-                    /*for (int i = 0; i < 50; i++ )
+                    if (tile.index != currentlyOn)
                     {
-                        tileSpawner.DeletePreviousTiles();
-                    }*/
+                        tileSpawner.AddNewTiles();
+                        currentlyOn = tile.index;
+                        /*for (int i = 0; i < 50; i++ )
+                        {
+                            tileSpawner.DeletePreviousTiles();
+                        }*/
+                    }
                 }
             }
             

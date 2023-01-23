@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4442010669087044346}
   - component: {fileID: 1892011446330279472}
   - component: {fileID: 1892011446330279473}
-  m_Layer: 0
+  - component: {fileID: 5776302638934683297}
+  m_Layer: 3
   m_Name: fGapTiles_ 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +99,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4493585093827132993, guid: b1ccd638af50c0a4b8affb0301c51f90, type: 3}
+--- !u!114 &5776302638934683297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90417320531519461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f08ab720f3bcb45a1e21f27911ad8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  pivot: {fileID: 0}
+  index: 0
 --- !u!1 &1695056294040661011
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6230127438157577595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: nFinWallGapTile_1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
