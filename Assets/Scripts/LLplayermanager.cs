@@ -9,6 +9,9 @@ using Random = UnityEngine.Random;
 
 public class LLplayermanager : MonoBehaviour
 {
+    private UnityEngine.TouchScreenKeyboard keyboard;
+    public static string keyboardText = "";
+    
     public Leaderboard leaderboard;
 
     public TMP_InputField playerNameInputfield;
@@ -20,7 +23,7 @@ public class LLplayermanager : MonoBehaviour
     //public Player score;
     //private float oldPlayerId;
     
-    // Start is called before the first frame update
+    // Start is called before the first frame updates
     void Start()
     {
         score = PlayerPrefs.GetInt("score");
@@ -30,8 +33,11 @@ public class LLplayermanager : MonoBehaviour
 
     public void SetPlayerName()
     {
+        TouchScreenKeyboard.Open("Enter Email:", TouchScreenKeyboardType.EmailAddress, false, false, false);
+        keyboardText = keyboard.text;
         LootLockerSDKManager.SetPlayerName(playerNameInputfield.text, (response) =>
         {
+            keyboard.text = playerNameInputfield.text;
             if (response.success)
             {
                 Debug.Log("Successfully set player name");

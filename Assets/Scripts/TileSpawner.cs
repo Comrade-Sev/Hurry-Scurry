@@ -37,7 +37,7 @@ namespace RunRun3
         private List<GameObject> currentTiles;
         private List<GameObject> currentGapTiles;
 
-        public int difficult = 1;
+        public int difficulty = 0;
         public int downIndexCounter;
         public int rightIndexCounter;
         public int leftIndexCounter;
@@ -240,7 +240,7 @@ namespace RunRun3
         public void AddNewTiles()
         {
             DeletePreviousTiles();
-            SpawnDownTile(downTiles[Random.Range(0, downTiles.Count - difficult)], true);
+            SpawnDownTile(downTiles[Random.Range(0, downTiles.Count - difficulty)], true);
             SpawnRightTile(rightTiles[Random.Range(0, rightTiles.Count)], true);
             SpawnLeftTile(leftTiles[Random.Range(0, leftTiles.Count)], true);
             SpawnUpTile(upTiles[Random.Range(0, upTiles.Count)], true);

@@ -3168,8 +3168,8 @@ MonoBehaviour:
   dashTry: 0
   Gravity: -20
   flag: 0
-  dashSpeed: 0.79
-  dashTime: 2
+  dashSpeed: 1
+  dashTime: 0.5
   end: 0
   doesItDash: 0
   isSprinting: 0

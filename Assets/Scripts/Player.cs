@@ -108,7 +108,7 @@ namespace RunRun3
             }
 
 
-            if(playerDeath.transform.position.y < -150)
+            if(playerDeath.transform.position.y < -120)
             {
                 scoreCalc();
                 SceneManager.LoadScene("Death");
