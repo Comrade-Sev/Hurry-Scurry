@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: d994576cff4301f42a749106e4997b80
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 306374514497273291
+    second: caemra.001|caemra.001Action
+  - first:
+      74: -7259296395524006431
+    second: caemra.001|flying
+  - first:
+      74: -8013371274785158067
+    second: caemra.001|wings.002Action
+  - first:
+      74: -8054850054428566368
+    second: caemra.001|wings.003Action
+  - first:
+      74: -7953753328115002372
+    second: caemra.001|wings.004Action
+  - first:
+      74: 2986627983164218234
+    second: wings.001|caemra.001Action
+  - first:
+      74: 384543622827742493
+    second: wings.001|flying
+  - first:
+      74: -7089815067192748696
+    second: wings.001|wings.002Action
+  - first:
+      74: -5971288862392938504
+    second: wings.001|wings.003Action
+  - first:
+      74: -4180040474538040945
+    second: wings.001|wings.004Action
+  - first:
+      74: 1363971384203725724
+    second: wings.002|caemra.001Action
+  - first:
+      74: 1998778235014201853
+    second: wings.002|flying
+  - first:
+      74: -3990358402623689290
+    second: wings.002|wings.002Action
+  - first:
+      74: 8323646358580973549
+    second: wings.002|wings.003Action
+  - first:
+      74: 8330068384512725714
+    second: wings.002|wings.004Action
+  - first:
+      74: 1877174190279111321
+    second: wings.003|caemra.001Action
+  - first:
+      74: 3897577629918598095
+    second: wings.003|flying
+  - first:
+      74: 7588050539238379043
+    second: wings.003|wings.002Action
+  - first:
+      74: -6918881348435799803
+    second: wings.003|wings.003Action
+  - first:
+      74: 930244613875906116
+    second: wings.003|wings.004Action
+  - first:
+      74: 4578027874412815594
+    second: wings.004|caemra.001Action
+  - first:
+      74: -2182377336690979009
+    second: wings.004|flying
+  - first:
+      74: -2629438319672836312
+    second: wings.004|wings.002Action
+  - first:
+      74: -5821213029636212755
+    second: wings.004|wings.003Action
+  - first:
+      74: 1818750879165686361
+    second: wings.004|wings.004Action
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
