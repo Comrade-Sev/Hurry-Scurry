@@ -241,9 +241,9 @@ namespace RunRun3
         {
             DeletePreviousTiles();
             SpawnDownTile(downTiles[Random.Range(0, downTiles.Count - difficulty)], true);
-            SpawnRightTile(rightTiles[Random.Range(0, rightTiles.Count)], true);
-            SpawnLeftTile(leftTiles[Random.Range(0, leftTiles.Count)], true);
-            SpawnUpTile(upTiles[Random.Range(0, upTiles.Count)], true);
+            SpawnRightTile(rightTiles[Random.Range(0, rightTiles.Count - difficulty)], true);
+            SpawnLeftTile(leftTiles[Random.Range(0, leftTiles.Count - difficulty)], true);
+            SpawnUpTile(upTiles[Random.Range(0, upTiles.Count - difficulty)], true);
         }
 
         public void DeletePreviousTiles()
