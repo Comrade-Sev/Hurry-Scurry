@@ -62,7 +62,7 @@ namespace RunRun3
         }
         private void SpawnDownTile(GameObject tile, bool spawnObstacle = true)
         {
-            prevTile = GameObject.Instantiate(tile.gameObject, currentDownTileLocation, Quaternion.Euler(0, 0, 0));
+            prevTile = GameObject.Instantiate(tile.gameObject, currentDownTileLocation, currentUpDownTileRotation);
             currentTiles.Add(prevTile);
             prevTile.transform.SetParent(MainBox.transform);
 
